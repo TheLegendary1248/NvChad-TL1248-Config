@@ -1,9 +1,43 @@
 -- All plugins have lazy=true by default,to load a plugin on startup just lazy=false
 -- List of all default plugins & their definitions
+local sfx_path = "~/.config/nvim/sfx/"
+local sfx_volume = 75
+
 local default_plugins = {
-
+  {"xiyaowong/transparent.nvim", lazy = false},
   "nvim-lua/plenary.nvim",
-
+  {"HiPhish/rainbow-delimiters.nvim", enabled = true, lazy = false},
+  "tpope/vim-surround",
+  {"junegunn/goyo.vim", lazy = false},
+  {"whleucka/reverb.nvim", 
+    lazy = false,
+    event = "BufReadPre",
+    opts = {
+      player = "pw-play",
+      sounds = {
+        -- add custom sound paths for other events here
+        -- eg. EVENT = "/some/path/to/sound.mp3"
+        TextChangedI = { path = sfx_path .. "Stone_dig2.ogg", volume = sfx_volume },
+        CursorMoved = { path = sfx_path .. "Stone_hit5.ogg", volume = sfx_volume },
+        WinScrolled = { path = sfx_path .. "Sand_hit2.ogg", volume = sfx_volume },
+        WinNew = { path = sfx_path .. "Grass_dig3.ogg", volume = sfx_volume },
+        -- WinClosed = { path = sfx_path .. "Glass_dig2.ogg", volume = sfx_volume },
+        TabEnter = { path = sfx_path .. "Page_turn3.ogg", volume = sfx_volume },
+        BufEnter = { path = sfx_path .. "Page_turn3.ogg", volume = sfx_volume },
+        -- CursorMovedI = { path = sound_dir .. "click.ogg", volume = 0-100 },
+        -- InsertLeave = { path = sound_dir .. "toggle.ogg", volume = 0-100 },
+        VimLeave = { path = sfx_path .. "Click.ogg", volume = sfx_volume },
+        BufWrite = { path = sfx_path .. "Ender_Chest_close.ogg", volume = sfx_volume },
+        BufRead = { path = sfx_path .. "Ender_Chest_open.ogg", volume = sfx_volume },
+        ColorScheme = { path = sfx_path .. "Equip_leather1.ogg", volume = sfx_volume },
+        -- TextChanged = { path = sfx_path .. "Enchanting_Table_enchant2.ogg", volume = 100 },
+        -- ^ Applies to changes not by user
+      },
+    },
+  },
+  {
+    'akinsho/git-conflict.nvim', version = "*", config = true, lazy = false
+  },
   {
     "NvChad/base46",
     branch = "v3.0",
@@ -44,7 +78,6 @@ local default_plugins = {
       require("nvim-web-devicons").setup(opts)
     end,
   },
-
   {
     "lukas-reineke/indent-blankline.nvim",
     event = "User FilePost",
