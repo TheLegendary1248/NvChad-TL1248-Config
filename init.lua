@@ -41,3 +41,13 @@ ls.add_snippets("all", {
   s("::more", { t("") }),
   s("::less", { t("󰍷") }),
 })
+vim.o.cursorcolumn = true
+vim.o.scrolloff = 4
+vim.o.uc = 0
+vim.o.rnu = true
+vim.o.laststatus=2
+vim.o.wrap = false
+vim.cmd[[
+highlight Cursorline cterm=bold term=bold guibg=green
+highlight Cursorcolumn cterm=bold term=bold guibg=red4
+]]
