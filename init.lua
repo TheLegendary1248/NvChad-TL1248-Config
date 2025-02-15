@@ -48,6 +48,6 @@ vim.o.rnu = true
 vim.o.laststatus=2
 vim.o.wrap = false
 vim.cmd[[
-highlight Cursorline cterm=bold term=bold guibg=green
-highlight Cursorcolumn cterm=bold term=bold guibg=red4
+highlight Cursorline cterm=bold term=bold guibg=#167C3F
+highlight Cursorcolumn cterm=bold term=bold guibg=#861A4E
 ]]

@@ -5,7 +5,8 @@ local sfx_volume = 100
 
 local default_plugins = {
   {"xiyaowong/transparent.nvim",
-    lazy = false,
+    enabled = false,
+    -- lazy = false,
     opts = {
       exclude_groups = {'CursorLine'},
     }
@@ -56,18 +57,22 @@ local default_plugins = {
         -- eg. EVENT = "/some/path/to/sound.mp3"
         TextChangedI = { path = sfx_path .. "Stone_dig2.ogg", volume = sfx_volume },
         CursorMoved = { path = sfx_path .. "Stone_hit5.ogg", volume = sfx_volume },
-        WinScrolled = { path = sfx_path .. "Sand_hit2.ogg", volume = sfx_volume },
+        -- WinScrolled = { path = sfx_path .. "Note_block_hat.mp3", volume = sfx_volume },
+        FocusGained = { path = sfx_path .. "Spyglass_use.mp3", volume = sfx_volume },
+        FocusLost = { path = sfx_path .. "Spyglass_stop.mp3", volume = sfx_volume },
         WinNew = { path = sfx_path .. "Grass_dig3.ogg", volume = sfx_volume },
-        -- WinClosed = { path = sfx_path .. "Glass_dig2.ogg", volume = sfx_volume },
         TabEnter = { path = sfx_path .. "Page_turn3.ogg", volume = sfx_volume },
         BufEnter = { path = sfx_path .. "Page_turn3.ogg", volume = sfx_volume },
-        -- CursorMovedI = { path = sound_dir .. "click.ogg", volume = 0-100 },
-        -- InsertLeave = { path = sound_dir .. "toggle.ogg", volume = 0-100 },
+        -- InsertLeave = { path = sfx_path .. "toggle.ogg", volume = sfx_volume },
         VimLeave = { path = sfx_path .. "Click.ogg", volume = sfx_volume },
         BufWrite = { path = sfx_path .. "Ender_Chest_close.ogg", volume = sfx_volume },
         BufRead = { path = sfx_path .. "Ender_Chest_open.ogg", volume = sfx_volume },
-        ColorScheme = { path = sfx_path .. "Equip_leather1.ogg", volume = sfx_volume },
-        -- TextChanged = { path = sfx_path .. "Enchanting_Table_enchant2.ogg", volume = 100 },
+        CmdlineLeave = { path = sfx_path .. "Enchanting_Table_enchant2.ogg", volume = sfx_volume },
+        TextYankPost = { path = sfx_path .. "Pop.mp3", volume = sfx_volume },
+        CmdlineChanged = { path = sfx_path .. "Copper_step4.mp3", volume = sfx_volume },
+        ModeChanged = { path = sfx_path .. "Amethyst_step10.mp3", volume = sfx_volume },
+        RecordingEnter = { path = sfx_path .. "Amethyst_step10.mp3", volume = sfx_volume },
+        RecordingLeave = { path = sfx_path .. "Amethyst_step10.mp3", volume = sfx_volume },
         -- ^ Applies to changes not by user
       },
     },
@@ -315,3 +320,9 @@ if #config.plugins > 0 then
 end
 
 require("lazy").setup(default_plugins, config.lazy_nvim)
+-------------------------------------- neovide config ------------------------------------------
+if vim.g.neovide then
+  -- g:neovide_transparency should be 0 if you want to unify transparency of content and title bar.
+  vim.g.neovide_transparency = 0.85
+  vim.g.neovide_cursor_antialiasing = false
+end
