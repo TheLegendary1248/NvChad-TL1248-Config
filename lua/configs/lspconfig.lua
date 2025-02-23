@@ -1,15 +1,16 @@
-local on_attach = require("nvchad.configs.lspconfig").on_attach
-local capabilities = require("nvchad.configs.lspconfig").capabilities
-
+local nvlsp = require "nvchad.configs.lspconfig"
 local lspconfig = require "lspconfig"
+
+nvlsp.defaults() -- apparently load nvchad's defaults
 
 -- if you just want default config for the servers then put them in a table
 local servers = { "html", "cssls", "ts_ls", "clangd" }
 local util = require "lspconfig/util"
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
+    on_attach = nvlsp.on_attach,
+    on_init = nvlsp.on_init,
+    capabilities = nvlsp.capabilities,
   }
 end
 lspconfig.gopls.setup{
@@ -22,9 +23,9 @@ lspconfig.pyright.setup {
   filetypes = "python"
 }
 lspconfig.omnisharp.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-  cmd = { "dotnet", "/home/tl1248/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll" },
+  on_attach = nvlsp.on_attach,
+  capabilities = nvlsp.capabilities,
+  cmd = { "dotnet", "/home/tl1248/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp" },
   -- Enables support for reading code style, naming convention and analyzer
   -- settings from .editorconfig.
   enable_editorconfig_support = false,

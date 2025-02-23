@@ -1,27 +1,30 @@
----@type ChadrcConfig
-local M = {}
-
 -- Path to overriding theme and highlights files
 local highlights = require "highlights"
-M.ui = {
-  theme = "glassppuccin",
-  theme_toggle = { "glassppuccin", "one_light" },
-  style = "atom",
-  hl_override = highlights.override,
-  hl_add = highlights.add,
-  statusline = {
-    theme = "default",
-    seperator_style = "arrow",
-    modules = {
-      cursor = function()
-        return "test" end,
+---@type ChadrcConfig
+local M = {
+  base46 = {
+    theme = "glassppuccin",
+    transparency = false
+  },
+  ui = {
+    statusline = {
+      modules = {
+        -- cursor = function()
+        --   return "Yaimo!" end,
+      }
     },
-  } 
+    tabufline = {
+      modules = {
+        abc = function()
+          return "hi"
+        end,
+      }
+    }
+  },
+  colorify = {
+    enabled = true,
+    mode = "bg"
+  }
 }
-
--- M.plugins = "plugins"
-
--- check core.mappings for table structure
--- M.mappings = require "mappings"
-
+local k = "#05FFFF"
 return M
