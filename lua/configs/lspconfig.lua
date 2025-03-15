@@ -19,8 +19,8 @@ lspconfig.gopls.setup{
   root_dir = util.root_pattern("go.work", "go.mod", ".git")
 }
 -- 
-lspconfig.pyright.setup { 
-  filetypes = "python"
+lspconfig.pyright.setup {
+  filetypes = { "python" }
 }
 lspconfig.omnisharp.setup({
   on_attach = nvlsp.on_attach,

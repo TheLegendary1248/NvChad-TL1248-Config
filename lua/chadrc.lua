@@ -21,10 +21,12 @@ local M = {
       }
     }
   },
+  nvdash = {
+    load_on_startup = true
+  },
   colorify = {
     enabled = true,
     mode = "bg"
   }
 }
-local k = "#05FFFF"
 return M
