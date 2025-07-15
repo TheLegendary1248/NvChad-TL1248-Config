@@ -54,13 +54,24 @@ M.base_16 = {
 }
 
 M.polish_hl = {
+  treesitter= {
   ["@variable"] = { fg = M.base_30.lavender },
-  ["@property"] = { fg = M.base_30.teal },
-  ["@variable.builtin"] = { fg = M.base_30.red },
-  ["@comment"] = { fg = M.base_16.base0F},
-  ["Comment"] = { fg = M.base_16.base0F}
-}
-
+  -- ["@property"] = { fg = M.base_30.teal },
+  -- ["@variable.builtin"] = { fg = M.base_30.red },
+  ["@comment"] = { fg = M.base_16.base0A},
+  ["Comment"] = { fg = M.base_16.base0A},
+  ["LineNr"] = { fg = M.base_16.base05},
+  ["CursorLineNr"] = { fg = M.base_16.base0B},
+  ["Cursorline"] = { bg = "#066C2F"},
+  ["Cursorcolumn"] = { bg = "#861A4E"},
+  ["Changed"] = {fg = M.base_16.base0D},
+  ["WinSeparator"] = {fg = M.base_16.base05},
+  ["TabLine"] = {bg = M.base_16.base00},
+  ["MatchParen"] = {bg = M.base_16.base07},
+  ["RainbowDelimiterRed"] = {fg = "#FF0000"},
+  ["RainbowDelimiterGreen"] = {fg = "#00FF00"},
+  ["RainbowDelimiterBlue"] = {fg = "#00A0FF"},
+}}
 M.type = "dark"
 
 M = require("base46").override_theme(M, "catppuccin")

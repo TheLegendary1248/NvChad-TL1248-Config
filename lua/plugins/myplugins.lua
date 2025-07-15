@@ -4,14 +4,14 @@ local sfx_volume = 100
 ---@type NvPluginSpec[]
 local plugins = {
   -- Custom
-  {"xiyaowong/transparent.nvim",
-    enabled = false,
-    -- lazy = false,
-    opts = {
-      exclude_groups = {'CursorLine'},
-    }
-  },
-{"HiPhish/rainbow-delimiters.nvim", enabled = true, lazy = false},
+{"HiPhish/rainbow-delimiters.nvim", enabled = true, lazy = false, main  = 'rainbow-delimiters.setup',
+opts = {
+    highlight = {
+        'RainbowDelimiterRed',
+        'RainbowDelimiterBlue',
+        'RainbowDelimiterGreen',
+    },
+  }},
   "tpope/vim-surround",
   -- lazy.nvim (TAKEN STRAIGHT FROM README)
   {

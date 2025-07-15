@@ -4,7 +4,7 @@ local highlights = require "highlights"
 local M = {
   base46 = {
     theme = "glassppuccin",
-    transparency = false
+    transparency = true
   },
   ui = {
     statusline = {
