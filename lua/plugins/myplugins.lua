@@ -12,6 +12,11 @@ opts = {
         'RainbowDelimiterGreen',
     },
   }},
+{
+  'mrcjkb/rustaceanvim',
+  version = '^6', -- Recommended
+  lazy = false, -- This plugin is already lazy
+},
   "tpope/vim-surround",
   -- lazy.nvim (TAKEN STRAIGHT FROM README)
   {
